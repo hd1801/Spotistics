@@ -5,7 +5,7 @@ const login = (req,res)=>{
       response_type: 'code',
       client_id: process.env.CLIENT_ID,
       redirect_uri: process.env.REDIRECT_URI,
-      scope: "user-top-read user-read-recently-played"
+      scope: "user-top-read user-read-recently-played user-read-currently-playing user-follow-read user-library-read user-read-recently-played playlist-read-collaborative playlist-read-private"
     }).toString());
 }
 export default  login;
