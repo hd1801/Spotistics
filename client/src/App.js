@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Login from "./Components/Login/Login";
 import CustomHeader from "./Components/Header/CustomHeader"
-import { Container,AppShell} from '@mantine/core';
+import {MantineProvider ,Container,AppShell} from '@mantine/core';
 import "./App.css";
 function App() {
   // convert url query string into a javascript object.
@@ -23,13 +23,20 @@ function App() {
   }
 
   return (
-    <AppShell className="bg" fixed
-    header={<CustomHeader/>}
+    <MantineProvider
+    theme ={{
+      colorScheme: "dark",
+      fontFamily: 'Poppins, sans-serif',
+      primaryColor: 'green',
+    }}
     >
-    <Container  className="App"  fluid>
+    <AppShell className="bg" fixed
+    header={<CustomHeader handleClick = {handleClick}/>}
+    
+    >
      { isLoggedIn ? <button onClick={handleCall} >Get data</button>: <Login handleClick = {handleClick} />}
-    </Container>
     </AppShell>    
+    </MantineProvider>
   );
 }
 

@@ -1,25 +1,23 @@
-import React, { useState } from "react";
-import { Header,MediaQuery,Burger,useMantineTheme} from '@mantine/core';
+import React from "react";
+import { Header,Button,Title,Image, Group} from '@mantine/core';
 
-const CustomHeader = ()=>{
-  const [opened, setOpened] = useState(false);
-  const theme = useMantineTheme();
-
+const CustomHeader = (props)=>{
   return (
-    <Header height={60} padding="md" >
+    <Header height={80} padding="xl" style={{backgroundColor: "#000"}}>
     {/* Handle other responsive styles with MediaQuery component or createStyles function */}
-      <div style={{ display: 'flex',justifyContent: "center", alignItems: 'center', height: '100%'  }}>
-        <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
-          <Burger
-          opened={opened}
-          onClick={() => setOpened((o) => !o)}
-          size="sm"
-          color={theme.colors.gray[6]}
-          mr="xl"
-          />
-        </MediaQuery>    
-      SPOTISTICS
+      <div style={{ display: 'flex',justifyContent: "space-between", justifyItems:"center",alignItems: 'center', height: '100%'  }}>
+        <Group spacing="xs" position="left">
+        <Image 
+          width="1.8rem"
+          src="/Spotify_Icon_RGB_Green.png"
+        />
+        <Title order={4}  
+        style={{ letterSpacing: 2.5, color:"#fff", fontStyle:"bold"}}>
+        SPOTISTICS</Title>
+        </Group>
+        <Button radius="xl" color="green" size="sm" uppercase onClick={props.handleClick} >Login to spotify</Button>        
       </div>
+      
     </Header>
 
   )
