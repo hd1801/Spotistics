@@ -1,5 +1,5 @@
 import React from "react";
-import {Blockquote, Button, Container,Title,Text, Group} from "@mantine/core"
+import {Blockquote, Button, Container,Title,Text} from "@mantine/core"
 
 const Login = (props)=>{
    return(

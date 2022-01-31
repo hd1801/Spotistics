@@ -3,7 +3,7 @@ html{
     min-height: -webkit-fill-availaible;
 }
 body{
-    overflow: hidden;
+    overflow: auto;
     max-height: -webkit-fill-availaible;
     min-height: 100vh;
 }

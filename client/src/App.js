@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import Login from "./Components/Login/Login";
 import CustomHeader from "./Components/Header/CustomHeader"
-import {MantineProvider ,Container,AppShell} from '@mantine/core';
+import Login from "./Components/Login/Login";
+import Home from "./Components/Home/Home";
+import {MantineProvider ,AppShell} from '@mantine/core';
+
 import "./App.css";
 function App() {
   // convert url query string into a javascript object.
@@ -10,16 +12,6 @@ function App() {
   const handleClick = ()=>{
     setLoggedInStatus(true);
     window.location= 'http://localhost:5000/';
-  }
-
-  const handleCall = async ()=>{
-   await fetch("https://api.spotify.com/v1/me/top/tracks",{method:"GET",
-    headers: {Authorization: 'Bearer ' + params.access_token}
-   })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-    }).catch( err => console.log(err)) 
   }
 
   return (
@@ -31,10 +23,10 @@ function App() {
     }}
     >
     <AppShell className="bg" fixed
-    header={<CustomHeader handleClick = {handleClick}/>}
+    header={<CustomHeader loginStatus={isLoggedIn} handleClick = {handleClick}/>}
     
     >
-     { isLoggedIn ? <button onClick={handleCall} >Get data</button>: <Login handleClick = {handleClick} />}
+     { isLoggedIn ? <Home params={params} />: <Login handleClick = {handleClick} />}
     </AppShell>    
     </MantineProvider>
   );

@@ -15,7 +15,7 @@ const CustomHeader = (props)=>{
         style={{ letterSpacing: 2.5, color:"#fff", fontStyle:"bold"}}>
         SPOTISTICS</Title>
         </Group>
-        <Button radius="xl" color="green" size="sm" uppercase onClick={props.handleClick} >Login to spotify</Button>        
+        { !props.loginStatus && <Button radius="xl" color="green" size="sm" uppercase onClick={props.handleClick} >Login to spotify</Button>}
       </div>
       
     </Header>
