@@ -4,12 +4,15 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app",
+    "server": "nodemon",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "npm run build --prefix client"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.25.0",
     "cors": "^2.8.5",
     "dotenv": "^14.2.0",
     "express": "^4.17.2",
@@ -17,5 +20,8 @@
     "nodemon": "^2.0.15",
     "request": "^2.88.2"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  }
 }
