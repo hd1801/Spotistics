@@ -3,7 +3,7 @@ import {Blockquote, Button, Container,Title,Text} from "@mantine/core"
 
 const Login = (props)=>{
    return(
-    <Container style={{display: 'flex',flexDirection:"column",alignItems:"center",justifyItems:"center",justifyContent:"center",height:'60%'}}  fluid>
+    <Container style={{display: 'flex',flexDirection:"column",alignItems:"center",justifyItems:"center",justifyContent:"center",height:'100%'}}  fluid>
         <Text
         align="center"
         mt= "md"
