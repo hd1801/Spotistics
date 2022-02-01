@@ -1,6 +1,6 @@
 import React,{useState , useEffect} from "react";
 import Track from "../Track/Track";
-import {Grid,Title} from "@mantine/core";
+import {Container, Grid,Title} from "@mantine/core";
 
 
 const Home= (props)=>{
@@ -32,20 +32,20 @@ const Home= (props)=>{
             return <div>Loading...</div>;
           } else {
             return (
-              <div>
-                <Title mb={10}>Top Songs</Title>
-              <Grid m={2} gutter="md">
+              <Container mt="3rem" fluid>
+                <Title order={1} mb={10}>Top Songs</Title>
+              <Grid m={2} align="stretch">
                { items.map( item =>{ 
                    console.log(item);
                    return (
-                    <Grid.Col key = {item.id } sm={3}>
+                    <Grid.Col key = {item.id } sm={4}>
                     <Track {...item} />
                     </Grid.Col>
                     );
                    })
                 }
                 </Grid>
-              </div>
+              </Container>
             );
     }
 }

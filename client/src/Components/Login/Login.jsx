@@ -19,7 +19,7 @@ const Login = (props)=>{
     You can tell a lot about a person by what's on their playlist.
     </Title>
     </Blockquote>
-    <Button mt="xl" radius="xl" color="green" size="md"  onClick={props.handleClick} uppercase >Login to spotify</Button>        
+    <Button mt="xl" radius="sm" color="green" size="md"  onClick={props.handleClick} uppercase >Login to spotify</Button>        
     
     </Container>
     );

@@ -8,7 +8,9 @@ import refreshToken from "./refreshToken.js";
 dotenv.config();
 const app =express();
 app.use(cors());
-const PORT_NO = process.env.PORT_NO;
+
+const {PORT_NO} = process.env;
+
 app.get("/",(req,res)=>{
     res.redirect("/login");
   });

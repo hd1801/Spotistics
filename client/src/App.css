@@ -8,5 +8,11 @@ body{
     min-height: 100vh;
 }
 .bg{
- background-color: #000;
+ background-color: #1c1f33;
+}
+.shadow{
+-webkit-box-shadow: 10px 2px 40px -6px rgba(0,0,0,0.47);
+-moz-box-shadow: 10px 2px 40px -6px rgba(0,0,0,0.47);
+box-shadow: 10px 2px 40px -6px rgba(0,0,0,0.47);
+    
 }

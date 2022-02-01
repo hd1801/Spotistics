@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-const callback = async (req,res)=>{
+const callback = async (req,res,next)=>{
     const code = req.query.code || null;
     var body = {
       code: code,
@@ -17,8 +17,8 @@ const callback = async (req,res)=>{
       })
         .then(resp => resp.json())
         .then(data => {
-          console.log(data);
           res.redirect(`http://localhost:3000/?${new URLSearchParams(data)}`);
       });
+      
   }
   export default callback;
