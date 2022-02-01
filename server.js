@@ -9,7 +9,7 @@ dotenv.config();
 const app =express();
 
 app.use(express.static(
-  path.join(__dirname,"../client/build")));
+  path.join(__dirname,"./client/build")));
 app.use(cors());
 
 const {PORT_NO} = process.env;
