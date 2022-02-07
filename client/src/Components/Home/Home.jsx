@@ -16,7 +16,7 @@ const trackReducer = (state , action)=>{
   }
 }
 
-const Home= (props)=>{
+const Home= ()=>{
     const accessToken =  useContext(TokenContext);
     const [tracks,dispatch] = useReducer(trackReducer,initialState);
     const showContent = ()=>{
