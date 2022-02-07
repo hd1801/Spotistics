@@ -3,7 +3,6 @@ import { Container,Text, Card,Image, Button, Group} from "@mantine/core";
 
 const Track=(props)=>{
     // Converting MS into minutes.  MS => MM:SS format 
-    
     const Duration = ((props.duration_ms/60000).toFixed(2)).replace('.',':');
     const openSongPlayer = ()=>{
         window.open(props.external_urls.spotify);
@@ -11,7 +10,7 @@ const Track=(props)=>{
     const openSongAlbum = ()=>{
         window.open(props.album.external_urls.spotify);
     }
-    console.log(props);
+
     return (
     <Card padding="xs"  shadow="xl"  style={{backgroundColor: "#070d17"}} >
     <Container padding={0} style={{display:"flex",justifyContent:"start",height:"100%",flexWrap:"nowrap" }} fluid>

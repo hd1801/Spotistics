@@ -13,6 +13,17 @@ const __dirname = dirname(__filename);
 
 dotenv.config();
 const app =express();
+
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, 'client/build')));
+// Handle React routing, return all requests to React app
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}
+
+
 app.use(cors());
 
 const {PORT_NO} = process.env;
@@ -26,16 +37,6 @@ app.get("/",(req,res)=>{
   app.get("/callback",callback);
 
   app.get('/refresh_token', refreshToken);
-
-  if (process.env.NODE_ENV === 'production') {
-    // Serve any static files
-    app.use(express.static(path.join(__dirname, 'client/build')));
-  // Handle React routing, return all requests to React app
-    app.get('*', function(req, res) {
-      res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-    });
-  }
-
 
   app.listen(PORT_NO,()=>{
     

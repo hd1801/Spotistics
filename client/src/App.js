@@ -3,8 +3,9 @@ import CustomHeader from "./Components/Header/CustomHeader"
 import Login from "./Components/Login/Login";
 import Home from "./Components/Home/Home";
 import {MantineProvider ,AppShell} from '@mantine/core';
-
 import "./App.css";
+export const TokenContext = React.createContext();
+
 function App() {
   // convert url query string into a javascript object.
   const params = Object.fromEntries(new URLSearchParams(window.location.search.substring(1)));
@@ -26,7 +27,9 @@ function App() {
     header={<CustomHeader loginStatus={isLoggedIn} handleClick = {handleClick}/>}
     
     >
-     { isLoggedIn ? <Home params={params} />: <Login handleClick = {handleClick} />}
+    <TokenContext.Provider value= {params.access_token}>
+     { isLoggedIn ? <Home />: <Login handleClick = {handleClick} />}
+    </TokenContext.Provider>
     </AppShell>    
     </MantineProvider>
   );
