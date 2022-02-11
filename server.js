@@ -14,18 +14,17 @@ if (process.env.NODE_ENV !== 'production') dotenv.config();
 
 const app =express();
 
-
 // Serve any static files
 app.use(express.static(path.join(__dirname, 'client/build')));
 // Handle React routing, return all requests to React app
 
-
-
-
 app.use(cors());
 
-const {PORT_NO} = process.env;
+const {PORT} = process.env;
 
+app.get('*', (req, res)=> {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
   app.get("/login",login);
 
   app.get("/callback",callback);
@@ -36,7 +35,7 @@ const {PORT_NO} = process.env;
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 
-  app.listen(PORT_NO,()=>{
+  app.listen(PORT,()=>{
     console.log(path.join(__dirname, 'client/build'));
-    console.log("server started at port ", PORT_NO);
+    console.log("server started at port ", PORT);
 });
