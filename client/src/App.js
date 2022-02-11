@@ -12,7 +12,7 @@ function App() {
   const [isLoggedIn,setLoggedInStatus] = useState(("access_token" in params));
   const handleClick = ()=>{
     setLoggedInStatus(true);
-    window.location= 'http://localhost:5000/';
+    window.location= 'http://localhost:5000/login';
   }
 
   return (

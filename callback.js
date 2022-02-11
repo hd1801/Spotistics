@@ -17,7 +17,7 @@ const callback = async (req,res,next)=>{
       })
         .then(resp => resp.json())
         .then(data => {
-          res.redirect(`http://localhost:3000/?${new URLSearchParams(data)}`);
+          res.redirect(`/?${new URLSearchParams(data)}`);
       });
       
   }
