@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CustomHeader from "./Components/Header/CustomHeader"
 import Login from "./Components/Login/Login";
-import Home from "./Components/Home/Home";
+import Tracks from "./Components/Tracks/Tracks";
 import {MantineProvider ,AppShell} from '@mantine/core';
 import "./App.css";
 export const TokenContext = React.createContext();
@@ -12,7 +12,7 @@ function App() {
   const [isLoggedIn,setLoggedInStatus] = useState(("access_token" in params));
   const handleClick = ()=>{
     setLoggedInStatus(true);
-    window.location= '/login';
+    window.location= 'http://localhost:5000/login';
   }
 
   return (
@@ -28,7 +28,7 @@ function App() {
     
     >
     <TokenContext.Provider value= {params.access_token}>
-     { isLoggedIn ? <Home />: <Login handleClick = {handleClick} />}
+     { isLoggedIn ? <Tracks />: <Login handleClick = {handleClick} />}
     </TokenContext.Provider>
     </AppShell>    
     </MantineProvider>
