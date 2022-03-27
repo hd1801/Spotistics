@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import CustomHeader from "./Components/Header/CustomHeader"
-import Login from "./Components/Login/Login";
-import Tracks from "./Components/Tracks/Tracks";
+import CustomHeader from "./Components/CustomHeader"
+import Login from "./Components/Login";
+import Tracks from "./Components/Tracks";
 import {MantineProvider ,AppShell} from '@mantine/core';
 import "./App.css";
 export const TokenContext = React.createContext();
