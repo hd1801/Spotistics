@@ -1,12 +1,12 @@
 import React,{useState} from "react";
-import Track from "./Track";
 import {Container, Grid,Title,Select} from "@mantine/core";
 import useFetch from "../hooks/useFetch";
+import ArtistList from "./ArtistList";
 
-const Tracks= ()=>{
+const TopArtists= ()=>{
     const [timeRange,setTimeRange]= useState("long_term");//initial time rate for getting top music.
-    const URL=`https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}`;
-    const tracks = useFetch(URL)
+    const URL=`https://api.spotify.com/v1/me/top/artists?time_range=${timeRange}`;
+    const artists = useFetch(URL)
     const showContent = ()=>{
       return (
       <>
@@ -24,10 +24,11 @@ const Tracks= ()=>{
               style={{ marginTop: 10,width:"8rem",backgroundColor:"#070d17" }}    
         />
         <Grid m={2} align="stretch">
-            { tracks.items.map( item =>{
+            { artists.items.map( item =>{
+                console.log(item);
                 return (
                 <Grid.Col key = {item.id } sm={4}>
-                <Track {...item} />
+                    {<ArtistList {...item}/>}
                 </Grid.Col>
                 );
                 })
@@ -42,13 +43,13 @@ const Tracks= ()=>{
     return(
     <Container mt="3rem" fluid>
       
-      <Title order={1} mt="4rem" ml={12} mb={10}>{ tracks.loading ? "LOADING... ":"Top Tracks"}</Title>
-      {tracks.error
-      ? <Title order={6} >there was a problem loading tracks, please try again.</Title>
+      <Title order={1} mt="4rem" ml={12} mb={10}>{ artists.loading ? "LOADING... ":"Top artists"}</Title>
+      {artists.error
+      ? <Title order={6} >there was a problem loading artists, please try again.</Title>
       : showContent()
       }
     </Container>
     )
       
 }
-export default Tracks;
+export default TopArtists;

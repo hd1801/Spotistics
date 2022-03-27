@@ -1,7 +1,7 @@
 import React from "react";
 import { Container,Text, Card,Image, Button, Group} from "@mantine/core";
 
-const Track=(props)=>{
+const TrackList=(props)=>{
     // Converting MS into minutes.  MS => MM:SS format 
     const Duration = ((props.duration_ms/60000).toFixed(2)).replace('.',':');
     const openSongPlayer = ()=>{
@@ -22,7 +22,7 @@ const Track=(props)=>{
         </Container>
     </Container>
     <Group mt="sm" grow>
-        <Button size= "md" onClick={openSongPlayer} variant="gradient" gradient={{ from: "green", to: "dark", deg:75 }} compact>Play Track</Button>
+        <Button size= "md" onClick={openSongPlayer} variant="gradient" gradient={{ from: "green", to: "dark", deg:75 }} compact>Play TrackList</Button>
         <Button size= "md"  onClick={openSongAlbum} variant="gradient" gradient={{ from: 'green', to: 'dark', deg: 75 }} compact>View Album</Button>
     </Group>
     </Card>
@@ -30,4 +30,4 @@ const Track=(props)=>{
     )
 };
 
-export default Track;
+export default TrackList;
