@@ -25,7 +25,6 @@ const TopArtists= ()=>{
         />
         <Grid m={2} align="stretch">
             { artists.items.map( item =>{
-                console.log(item);
                 return (
                 <Grid.Col key = {item.id } sm={4}>
                     {<ArtistList {...item}/>}
