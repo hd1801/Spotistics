@@ -6,7 +6,7 @@ const ArtistList=(props)=>{
     return (
     <Card padding="md"  shadow="xl"  style={{backgroundColor: "#070d17"}} >
     <Container padding={0} style={{display:"flex",flexDirection:"column",justifyContent:"space-between",height:"100%",alignItems:"center" }} fluid>
-        <Image radius={100} onClick={()=>{window.open(props.external_urls.spotify)}} height="7rem" width="7rem" src={props.images[1].url} me= "3rem"/>
+        <Image radius={100} onClick={()=>{window.open(props.external_urls.spotify)}} height="7rem" width="7rem" src={ props.images[0] ? props.images[0].url : "https://i.scdn.co/image/ab67616d0000b273113ad52fd0dde0a7a1db81f1"} me= "3rem"/>
         <Text onClick={()=>{window.open(props.external_urls.spotify)}} mt="xl" size="md" weight="bold" >{props.name}</Text>
         <Group p="lg" mt="sm" position="center">
             {props.genres.map( (item,index) =>{
