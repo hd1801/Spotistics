@@ -15,7 +15,7 @@ function App() {
   const [pageNo,setPage] = useState(0);
   const handleClick = ()=>{
     setLoggedInStatus(true);
-    window.location= 'http://localhost:5000/login';
+    window.location= '/login';
   }
   const showPage= ()=>{
     switch(pageNo){
